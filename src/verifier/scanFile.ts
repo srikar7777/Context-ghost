@@ -36,7 +36,7 @@ export async function scanFile(
   targets: SearchTarget[],
   workspaceRoot: string
 ): Promise<Record<string, Occurrence[]>> {
-  const result: Record<string, Occurrence[]> = {};
+  const result: Record<string, Occurrence[]> = Object.create(null) as Record<string, Occurrence[]>;
 
   for (const target of targets) {
     result[target.value] = [];
