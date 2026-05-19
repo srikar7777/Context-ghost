@@ -15,6 +15,10 @@ import type {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// When running under Vitest, the current file is a .ts source file and the
+// worker must also be loaded as .ts (Vitest injects the necessary loader flags
+// via process.execArgv). In compiled production mode, both files are .js.
 const workerFile = extname(__filename) === ".ts" ? "scanWorker.ts" : "scanWorker.js";
 const WORKER_PATH = join(__dirname, workerFile);
 
