@@ -91,7 +91,7 @@ export class RealityVerifier {
       };
     }
 
-    const mergedMatches: Record<string, Occurrence[]> = {};
+    const mergedMatches: Record<string, Occurrence[]> = Object.create(null) as Record<string, Occurrence[]>;
     for (const target of searchTargets) {
       mergedMatches[target.value] = [];
     }
